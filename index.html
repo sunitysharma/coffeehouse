@@ -1,0 +1,205 @@
+<!-- ************************************************
+        Coffee House - Shopping Cart API
+        Author: Sunity Sharma
+        Creation Date: 14 December 2020
+        File Type: HTML
+      ************************************************ -->
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>ReactJS</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Main Style Sheet -->
+    <link rel="stylesheet" href="style.css">
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Londrina+Sketch&display=swap" rel="stylesheet">
+    <!-- Bottstrap Link -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/css/bootstrap.css">
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.22/css/dataTables.bootstrap4.min.css">
+    <link rel="stylesheet" href="https://cdn.datatables.net/responsive/2.2.6/css/responsive.bootstrap4.min.css">
+</head>
+<body>
+  <!--Navbar-->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container">
+      <!-- Navbar brand -->
+      <a class="navbar-brand" href="#">COFFEE HOUSE</a>
+      <!-- Collapsible content -->
+      <div class="collapse navbar-collapse justify-content-end" id="basicExampleNav">
+        <form class="form-inline my-2 my-lg-0">
+          <input class="form-control my-2 my-sm-0 filter" type="search" id="searchbox" placeholder="Search Here" aria-label="Search">
+          <!-- <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button> -->
+        </form>
+      </div>
+
+      <!-- Collapse button -->
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#basicExampleNav"
+        aria-controls="basicExampleNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Main -->
+
+  <main>
+    <!-- Card Block -->
+    <div class="container mt-4">
+      <div class="main-buttons">
+        <div class="bg-white clearfix">
+          <button type="button" class="btn float-right btn-outline-info ml-2" data-toggle="modal" data-target="#cart">Cart (<span class="total-count"></span>)</button>
+          <button type="button" class="clear-cart btn float-right btn-outline-info ml-2">Clear Cart</button>
+        </div>
+      </div>
+      <div class="cards-block">
+        <!-- <div class="row card-deck"> -->
+        <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 row-cols-xl-5">
+          <!-- <div class="col card"> -->
+          <div class="col mb-4" data-role="filterSearch">
+            <div class="card" data-string="Cappuccino">
+              <img class="card-img-top" src="https://images.unsplash.com/photo-1587491439149-bd2ff295d450?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Card image cap">
+              <div class="card-body">
+                <h5 class="card-title">Cappuccino</h5>
+                <p class="card-text">Price: $7.0</p>
+                <a href="#" data-name="Cappuccino" data-price="7.0" class="add-to-cart btn btn-primary">Add to cart</a>
+              </div>
+            </div>
+          </div>
+          <div class="col mb-4" data-role="filterSearch">
+            <div class="card" data-string="Latte">
+              <img class="card-img-top" src="https://images.unsplash.com/photo-1593829111182-8a237d2bb024?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="Card image cap">
+              <div class="card-body">
+                <h5 class="card-title">Latte</h5>
+                <p class="card-text">Price: $7.49</p>
+                <a href="#" data-name="Latte" data-price="7.49" class="add-to-cart btn btn-primary">Add to cart</a>
+              </div>
+            </div>
+          </div>
+          <div class="col mb-4" data-role="filterSearch">
+            <div class="card" data-string="Espresso">
+              <img class="card-img-top" src="https://images.unsplash.com/photo-1583197750973-f66ec9b945b3?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Card image cap">
+              <div class="card-body">
+                <h5 class="card-title">Espresso</h5>
+                <p class="card-text">Price: $8.49</p>
+                <a href="#" data-name="Espresso" data-price="8.49" class="add-to-cart btn btn-primary">Add to cart</a>
+              </div>
+            </div>
+          </div>
+          <div class="col mb-4" data-role="filterSearch">
+            <div class="card" data-string="Black Coffee">
+              <img class="card-img-top" src="https://images.unsplash.com/photo-1588012841523-08163e2b0c26?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Card image cap">
+              <div class="card-body">
+                <h5 class="card-title">Black Coffee</h5>
+                <p class="card-text">Price: $5.99</p>
+                <a href="#" data-name="Black Coffee" data-price="5.99" class="add-to-cart btn btn-primary">Add to cart</a>
+              </div>
+            </div>
+          </div>
+          <div class="col mb-4" data-role="filterSearch">
+            <div class="card" data-string="Matcha Tea">
+              <img class="card-img-top" src="https://images.unsplash.com/photo-1559603738-b406aaf7a435?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="Card image cap">
+              <div class="card-body">
+                <h5 class="card-title">Matcha Tea</h5>
+                <p class="card-text">Price: $5.99</p>
+                <a href="#" data-name="Matcha Tea" data-price="5.99" class="add-to-cart btn btn-primary">Add to cart</a>
+              </div>
+            </div>
+          </div>
+          <div class="col mb-4" data-role="filterSearch">
+            <div class="card" data-string="Hot Chocolate">
+              <img class="card-img-top" src="https://images.unsplash.com/photo-1580643842201-d1de38d71987?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Card image cap">
+              <div class="card-body">
+                <h5 class="card-title">Hot Chocolate</h5>
+                <p class="card-text">Price: $5.49</p>
+                <a href="#" data-name="Hot Chocolate" data-price="5.49" class="add-to-cart btn btn-primary">Add to cart</a>
+              </div>
+            </div>
+          </div>
+          <div class="col mb-4" data-role="filterSearch">
+            <div class="card" data-string="Iced Coffee">
+              <img class="card-img-top" src="https://images.unsplash.com/photo-1601052743222-37febbe7102f?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="Card image cap">
+              <div class="card-body">
+                <h5 class="card-title">Iced Coffee</h5>
+                <p class="card-text">Price: $7.99</p>
+                <a href="#" data-name="Iced Coffee" data-price="7.99" class="add-to-cart btn btn-primary">Add to cart</a>
+              </div>
+            </div>
+          </div>
+          <div class="col mb-4" data-role="filterSearch">
+            <div class="card" data-string="Iced Tea">
+              <img class="card-img-top" src="https://images.unsplash.com/photo-1470752354724-60a1d2b1907f?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&auto=format&fit=crop&w=500&q=80" alt="Card image cap">
+              <div class="card-body">
+                <h5 class="card-title">Iced Tea</h5>
+                <p class="card-text">Price: $6.99</p>
+                <a href="#" data-name="Iced Tea" data-price="6.99" class="add-to-cart btn btn-primary">Add to cart</a>
+              </div>
+            </div>
+          </div>
+          <div class="col mb-4" data-role="filterSearch">
+            <div class="card" data-string="Hot Masala Tea">
+              <img class="card-img-top" src="https://images.unsplash.com/photo-1605690958425-0a7dae081dd8?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="Card image cap">
+              <div class="card-body">
+                <h5 class="card-title">Hot Masala Tea</h5>
+                <p class="card-text">Price: $5.99</p>
+                <a href="#" data-name="Hot Masala Tea" data-price="5.99" class="add-to-cart btn btn-primary">Add to cart</a>
+              </div>
+            </div>
+          </div>
+          <div class="col mb-4" data-role="filterSearch">
+            <div class="card" data-string="Mocha">
+              <img class="card-img-top" src="https://images.pexels.com/photos/4669217/pexels-photo-4669217.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt="Card image cap">
+              <div class="card-body">
+                <h5 class="card-title">Mocha</h5>
+                <p class="card-text">Price: $5.99</p>
+                <a href="#" data-name="Mocha" data-price="5.99" class="add-to-cart btn btn-primary">Add to cart</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <!-- Modal - Cart Add/Del/Modify Cart-->
+    <div class="modal fade" id="cart" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Cart</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <table class="show-cart table">
+
+            </table>
+            <div>Total price: $<span class="total-cart"></span></div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            <button type="button" class="btn btn-primary">Order now</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+
+  <!-- JavaScript Files -->
+
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/react/0.14.0/react.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/react/0.14.0/react-dom.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-core/5.8.23/browser.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+  <script src="script.js"></script>
+
+</body>
+</html>
